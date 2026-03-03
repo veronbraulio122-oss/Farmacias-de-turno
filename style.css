@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  overflow: hidden;
+}
+
+.card {
+  background: #0b0b0b;
+  width: 95%;
+  max-width: 520px;
+  padding: 45px 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.9);
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-municipio {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.localidad {
+  margin: 5px 0;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+h1 {
+  margin: 10px 0 15px 0;
+  font-weight: 800;
+}
+
+.info {
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.95;
+  margin-bottom: 25px;
+}
+
+/* FECHA */
+.fecha {
+  margin-bottom: 20px;   /* más aire */
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* LOGO RED */
+.logo-red {
+  display: none;
+  width: 380px;          
+  max-width: 100%;
+  margin: 25px auto 15px auto;  /* espacio real arriba y abajo */
+  filter: brightness(1.2) contrast(1.2)
+          drop-shadow(0 0 40px rgba(114,189,153,0.6));
+}
+
+/* NOMBRE FARMACIA */
+.nombre-farmacia {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-top: 10px;     /* ya no negativo */
+  margin-bottom: 35px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* BOTONES */
+.btn {
+  width: 100%;
+  padding: 18px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-maps {
+  background: #1e3a8a;
+  color: white;
+}
+
+.btn-maps:hover {
+  background: #1d4ed8;
+}
+
+.btn-wpp {
+  background: #25D366;
+  color: white;
+}
+
+.btn-wpp:hover {
+  background: #1ebe5d;
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: 13px;
+  opacity: 0.1;
+}
+
+/* ============================= */
+/*           CONFETTI            */
+/* ============================= */
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  opacity: 0.9;
+  z-index: 1;
+  animation: caer linear forwards;
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(540deg);
+  }
+}
