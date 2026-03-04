@@ -6,44 +6,52 @@
 <title>Farmacia de Turno - Comandante Andresito</title>
 
 <link rel="stylesheet" href="style.css">
+
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome (iconos botones) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
 
 <div class="card">
 
-<!-- Logo Municipio -->
-<img src="img/logo-andresito.png" class="logo-municipio" alt="Comandante Andresito">
+    <!-- Logo Municipio -->
+    <img src="img/logo-andresito.png" class="logo-municipio" alt="Comandante Andresito">
 
-<h2 class="localidad">Comandante Andresito</h2>
-<h1>Farmacia de Turno</h1>
+    <h2 class="localidad">Comandante Andresito</h2>
+    <h1>Farmacia de Turno</h1>
 
-<p class="info">
-Los turnos comienzan a las 08:00 y finalizan a las 08:00 del día siguiente.
-El sistema muestra el turno correspondiente al día en que inició.
-</p>
+    <p class="info">
+        Los turnos comienzan a las 08:00 y finalizan a las 08:00 del día siguiente.
+        El sistema muestra el turno correspondiente al día en que inició.
+    </p>
 
-<div id="fecha" class="fecha"></div>
+    <div id="fecha" class="fecha"></div>
 
-<!-- Logo Red -->
-<img src="img/redfarmako.png" class="logo-red" alt="Red Farmako">
+    <!-- Nombre farmacia dinámico -->
+    <div id="nombre-farmacia" class="nombre-farmacia">
+        Cargando...
+    </div>
 
-<div id="nombre-farmacia" class="nombre-farmacia">
-Cargando...
-</div>
+    <!-- BOTÓN MAPS -->
+    <button id="btn-maps" class="btn btn-maps">
+        <i class="fa-solid fa-location-dot"></i>
+        Cómo llegar
+    </button>
 
-<button id="btn-maps" class="btn btn-maps">
-Cómo llegar
-</button>
+    <!-- BOTÓN WHATSAPP -->
+    <button id="btn-wpp" class="btn btn-wpp">
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp
+    </button>
 
-<button id="btn-wpp" class="btn btn-wpp">
-WhatsApp
-</button>
-
-<footer class="footer">
-© 2026 Braulio · Comandante Andresito
-</footer>
+    <footer class="footer">
+        © 2026 Braulio · Comandante Andresito
+    </footer>
 
 </div>
 
