@@ -14,9 +14,9 @@ body {
 
 .card {
   background: #2a454c;
-  width: 92%;
-  max-width: 520px; /* más protagonista */
-  padding: 55px 45px;
+  width: 88%;
+  max-width: 420px; /* más angosta */
+  padding: 55px 40px;
   border-radius: 32px;
   text-align: center;
   box-shadow: 0 45px 120px rgba(0,0,0,0.65);
