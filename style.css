@@ -24,8 +24,6 @@ color:#ffffff;
 
 overflow:hidden;
 
-position:relative;
-
 }
 
 /* CARD */
@@ -53,11 +51,11 @@ animation:fadeIn .6s ease forwards;
 
 position:relative;
 
-z-index:5;
+z-index:2;
 
 }
 
-/* ANIMACION ENTRADA */
+/* ANIMACION */
 
 @keyframes fadeIn{
 
@@ -73,12 +71,25 @@ transform:translateY(0);
 
 }
 
-/* LOGO */
+/* LOGO MUNICIPIO */
 
 .logo-municipio{
 
 width:60px;
-margin-bottom:4px;
+
+margin-bottom:8px;
+
+}
+
+/* LOGO RED FARMAKO */
+
+.logo-red{
+
+width:220px;
+
+margin:5px auto 10px auto;
+
+display:none;
 
 }
 
@@ -92,7 +103,7 @@ letter-spacing:1px;
 
 text-transform:uppercase;
 
-opacity:.7;
+opacity:0.7;
 
 margin-bottom:18px;
 
@@ -110,17 +121,21 @@ margin-bottom:16px;
 
 }
 
-/* TEXTO */
+/* TEXTO INFO */
 
 .info{
 
-font-size:13px;
+font-size:12.5px;
 
-line-height:1.5;
+line-height:1.55;
 
-opacity:.75;
+opacity:0.75;
 
-margin-bottom:22px;
+max-width:300px;
+
+margin:0 auto 18px auto;
+
+letter-spacing:0.2px;
 
 }
 
@@ -128,56 +143,50 @@ margin-bottom:22px;
 
 .fecha{
 
-font-size:14px;
+font-size:17px;
+
+font-weight:500;
+
+margin-top:12px;
 
 margin-bottom:6px;
 
-opacity:.9;
+color:#e4f1f2;
+
+letter-spacing:0.3px;
 
 }
 
-/* FARMACIA */
+/* NOMBRE FARMACIA */
 
 .nombre-farmacia{
 
-font-size:22px;
+font-size:30px;
 
 font-weight:700;
 
-margin-bottom:26px;
+margin-top:18px;
+
+margin-bottom:40px;
 
 }
 
 /* BOTONES */
 
-.btn{
-
+.btn {
 width:100%;
-
 padding:16px;
-
 margin-bottom:14px;
-
 border-radius:18px;
-
 text-decoration:none;
-
 font-weight:600;
-
 font-size:15px;
+transition:all 0.25s ease;
+display:inline-block;
+}
 
-transition:all .25s ease;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-gap:6px;
-
-cursor:pointer;
-
-border:none;
-
+.btn i {
+margin-right:6px;
 }
 
 /* MAPS */
@@ -198,53 +207,30 @@ transform:scale(1.03);
 
 /* WHATSAPP */
 
-.btn-wpp{
-
+.btn-wpp {
 background:#25D366;
-
 color:white;
-
 position:relative;
-
 }
 
-/* PULSO WHATSAPP */
+/* Pulso sutil */
 
-.btn-wpp::after{
-
+.btn-wpp::after {
 content:"";
-
 position:absolute;
-
 inset:0;
-
 border-radius:18px;
-
-background:rgba(37,211,102,.4);
-
+background:rgba(37,211,102,0.4);
 animation:pulse 2s infinite;
-
 z-index:-1;
-
 }
 
-@keyframes pulse{
+/* ANIMACION PULSO */
 
-0%{
-transform:scale(1);
-opacity:.5;
-}
-
-70%{
-transform:scale(1.05);
-opacity:0;
-}
-
-100%{
-transform:scale(1);
-opacity:0;
-}
-
+@keyframes pulse {
+0%{transform:scale(1);opacity:0.5;}
+70%{transform:scale(1.05);opacity:0;}
+100%{transform:scale(1);opacity:0;}
 }
 
 /* FOOTER */
@@ -253,13 +239,15 @@ opacity:0;
 
 font-size:10px;
 
-opacity:.4;
+opacity:0.4;
 
-margin-top:18px;
+margin-top:20px;
+
+letter-spacing:0.8px;
 
 }
 
-/* ================= CONFETTI ================= */
+/* CONFETTI */
 
 .confetti{
 
@@ -267,7 +255,7 @@ position:fixed;
 
 top:-20px;
 
-opacity:.9;
+opacity:0.9;
 
 z-index:1;
 
