@@ -2,21 +2,20 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Farmacia de Turno - Comandante Andresito</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            /* COLOR TIPO WINDOWS/TEAL MODERNO */
             --primary: #72bd99; 
             --primary-hover: #5da684;
-            --bg-body: #ffffff; /* Fondo blanco puro para contraste */
-            --card-bg: #fafafa; /* Blanco suave para el recuadro */
+            --bg-body: #ffffff; 
+            --card-bg: #fafafa;
             --text-main: #0f172a;
             --text-muted: #64748b;
             --border-color: rgba(0, 0, 0, 0.03);
-            --radius-lg: 32px; /* Un poco más curvo, más premium */
+            --radius-lg: 32px;
             --radius-md: 18px;
         }
 
@@ -34,18 +33,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 15px; /* Menos padding lateral en el body */
             color: var(--text-main);
         }
 
         .card {
             background: var(--card-bg);
-            width: 100%;
-            max-width: 420px;
+            width: 100%; /* Ocupa todo el ancho disponible */
+            max-width: 420px; /* Pero no se estira de más en PC */
             border-radius: var(--radius-lg);
-            padding: 56px 36px;
-            /* SOMBRAS PRO MULTICAPA (Layered Shadows) */
-            /* Esta es la magia para que flote: una sombra suave cerca, y una profunda lejos */
+            padding: 40px 24px; /* Padding ajustado para mobile */
             box-shadow: 
                 0 4px 6px -1px rgba(0, 0, 0, 0.05),
                 0 10px 20px -5px rgba(0, 0, 0, 0.1),
@@ -59,7 +56,7 @@
 
         .logo-municipio {
             height: 48px;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             object-fit: contain;
             opacity: 0.9;
         }
@@ -74,7 +71,7 @@
         }
 
         h1 {
-            font-size: 1.9rem;
+            font-size: 1.75rem; /* Un poco más chico para que no rompa en pantallas angostas */
             font-weight: 800;
             letter-spacing: -0.03em;
             color: var(--text-main);
@@ -83,39 +80,39 @@
         }
 
         .info {
-            font-size: 0.9rem;
-            line-height: 1.6;
+            font-size: 0.85rem;
+            line-height: 1.5;
             color: var(--text-muted);
-            margin-bottom: 36px;
-            padding: 0 10px;
+            margin-bottom: 30px;
         }
 
         .fecha {
             background-color: #f1f5f9;
             border: 1px solid rgba(0, 0, 0, 0.03);
-            padding: 16px 24px;
+            padding: 12px 20px;
             border-radius: var(--radius-md);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-main);
-            margin-bottom: 45px;
+            margin-bottom: 35px;
             display: inline-block;
+            width: auto;
         }
 
         .logo-red {
-            height: 32px;
-            margin-bottom: 16px;
+            height: 28px;
+            margin-bottom: 12px;
             opacity: 0.7;
             object-fit: contain;
         }
 
         .nombre-farmacia {
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--text-main);
-            margin-bottom: 45px;
-            min-height: 42px;
-            letter-spacing: -0.01em;
+            margin-bottom: 35px;
+            min-height: 40px;
+            line-height: 1.2;
         }
 
         .btn {
@@ -123,62 +120,48 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            padding: 20px;
+            padding: 18px;
             border-radius: var(--radius-md);
             font-size: 1rem;
             font-weight: 700;
             border: none;
             cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s ease;
             gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .btn:active {
-            transform: scale(0.97);
+            margin-bottom: 12px;
         }
 
         .btn-maps {
             background-color: var(--primary);
             color: white;
-            /* Sombra suave para el botón también */
-            box-shadow: 0 6px 16px rgba(114, 189, 153, 0.3);
-        }
-
-        .btn-maps:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px); /* Pequeño salto al hover */
-            box-shadow: 0 8px 20px rgba(114, 189, 153, 0.4);
+            box-shadow: 0 4px 14px rgba(114, 189, 153, 0.35);
         }
 
         .btn-wpp {
             background-color: white;
             color: #1a1a1a;
             border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
         }
 
-        .btn-wpp:hover {
-            background-color: #f8fafc;
-            border-color: rgba(0, 0, 0, 0.12);
-        }
-
-        /* Footer casi invisible */
+        /* Footer casi invisible pedido */
         .footer {
-            margin-top: 45px;
-            font-size: 0.72rem;
+            margin-top: 35px;
+            font-size: 0.7rem;
             color: var(--text-muted);
-            opacity: 0.25; /* Opacidad 0.2,5 como pediste */
+            opacity: 0.25; 
             font-weight: 500;
-            letter-spacing: 0.03em;
-            text-align: center;
         }
 
-        /* Animación de entrada con ligero "rebote" */
+        /* Ajustes extra para pantallas muy pequeñas (iPhone SE, etc) */
+        @media (max-width: 360px) {
+            .card { padding: 30px 20px; }
+            h1 { font-size: 1.5rem; }
+            .nombre-farmacia { font-size: 1.4rem; }
+        }
+
         @keyframes fadeInFloating {
-            0% { opacity: 0; transform: translateY(30px) scale(0.98); }
-            70% { opacity: 1; transform: translateY(-5px) scale(1.00); }
-            100% { opacity: 1; transform: translateY(0) scale(1.00); }
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -187,33 +170,27 @@
 <div class="card">
     <img src="img/logo-andresito.png" class="logo-municipio" alt="Logo Municipio">
 
-    <div class="localidad">
-        Comandante Andresito
-    </div>
+    <div class="localidad">Comandante Andresito</div>
 
     <h1>Farmacia de Turno</h1>
 
     <p class="info">
-        Los turnos rotan a las 08:00 AM. <br>
-        Guardia las 24 horas del día.
+        Turnos rotativos 08:00 AM.<br>
+        Guardia las 24 horas.
     </p>
 
     <div id="fecha" class="fecha"></div>
 
     <img src="img/redfarmako.png" class="logo-red" alt="Red Farmako">
 
-    <div id="nombre-farmacia" class="nombre-farmacia">
-        Cargando...
-    </div>
+    <div id="nombre-farmacia" class="nombre-farmacia">Cargando...</div>
 
     <button id="btn-maps" class="btn btn-maps">
-        <i class="fa-solid fa-location-dot"></i>
-        Cómo llegar
+        <i class="fa-solid fa-location-dot"></i> Cómo llegar
     </button>
 
     <button id="btn-wpp" class="btn btn-wpp">
-        <i class="fa-brands fa-whatsapp"></i>
-        WhatsApp
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
     </button>
 
     <footer class="footer">
