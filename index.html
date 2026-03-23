@@ -1,60 +1,224 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Farmacia de Turno - Comandante Andresito</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            /* COLOR TIPO WINDOWS/TEAL MODERNO */
+            --primary: #72bd99; 
+            --primary-hover: #5da684;
+            --bg-body: #ffffff; /* Fondo blanco puro para contraste */
+            --card-bg: #fafafa; /* Blanco suave para el recuadro */
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: rgba(0, 0, 0, 0.03);
+            --radius-lg: 32px; /* Un poco más curvo, más premium */
+            --radius-md: 18px;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-<title>Farmacia de Turno - Comandante Andresito</title>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            color: var(--text-main);
+        }
 
-<link rel="stylesheet" href="style.css">
+        .card {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 420px;
+            border-radius: var(--radius-lg);
+            padding: 56px 36px;
+            /* SOMBRAS PRO MULTICAPA (Layered Shadows) */
+            /* Esta es la magia para que flote: una sombra suave cerca, y una profunda lejos */
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 10px 20px -5px rgba(0, 0, 0, 0.1),
+                0 30px 45px -10px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            position: relative;
+            animation: fadeInFloating 0.8s ease-out;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+        .logo-municipio {
+            height: 48px;
+            margin-bottom: 28px;
+            object-fit: contain;
+            opacity: 0.9;
+        }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        .localidad {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
+        }
 
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .info {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            padding: 0 10px;
+        }
+
+        .fecha {
+            background-color: #f1f5f9;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            padding: 16px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 45px;
+            display: inline-block;
+        }
+
+        .logo-red {
+            height: 32px;
+            margin-bottom: 16px;
+            opacity: 0.7;
+            object-fit: contain;
+        }
+
+        .nombre-farmacia {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 45px;
+            min-height: 42px;
+            letter-spacing: -0.01em;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn-maps {
+            background-color: var(--primary);
+            color: white;
+            /* Sombra suave para el botón también */
+            box-shadow: 0 6px 16px rgba(114, 189, 153, 0.3);
+        }
+
+        .btn-maps:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px); /* Pequeño salto al hover */
+            box-shadow: 0 8px 20px rgba(114, 189, 153, 0.4);
+        }
+
+        .btn-wpp {
+            background-color: white;
+            color: #1a1a1a;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .btn-wpp:hover {
+            background-color: #f8fafc;
+            border-color: rgba(0, 0, 0, 0.12);
+        }
+
+        /* Footer casi invisible */
+        .footer {
+            margin-top: 45px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            opacity: 0.25; /* Opacidad 0.2,5 como pediste */
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-align: center;
+        }
+
+        /* Animación de entrada con ligero "rebote" */
+        @keyframes fadeInFloating {
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+            70% { opacity: 1; transform: translateY(-5px) scale(1.00); }
+            100% { opacity: 1; transform: translateY(0) scale(1.00); }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="card">
+    <img src="img/logo-andresito.png" class="logo-municipio" alt="Logo Municipio">
 
-<img src="img/logo-andresito.png" class="logo-municipio">
+    <div class="localidad">
+        Comandante Andresito
+    </div>
 
-<div class="localidad">
-Comandante Andresito
-</div>
+    <h1>Farmacia de Turno</h1>
 
-<h1>Farmacia de Turno</h1>
+    <p class="info">
+        Los turnos rotan a las 08:00 AM. <br>
+        Guardia las 24 horas del día.
+    </p>
 
-<p class="info">
-Los turnos comienzan a las 08:00 y finalizan a las 08:00 del día siguiente.
-El sistema muestra el turno correspondiente al día en que inició.
-</p>
+    <div id="fecha" class="fecha"></div>
 
-<div id="fecha" class="fecha"></div>
+    <img src="img/redfarmako.png" class="logo-red" alt="Red Farmako">
 
-<img src="img/redfarmako.png" class="logo-red">
+    <div id="nombre-farmacia" class="nombre-farmacia">
+        Cargando...
+    </div>
 
-<div id="nombre-farmacia" class="nombre-farmacia">
-Cargando...
-</div>
+    <button id="btn-maps" class="btn btn-maps">
+        <i class="fa-solid fa-location-dot"></i>
+        Cómo llegar
+    </button>
 
-<button id="btn-maps" class="btn btn-maps">
-<i class="fa-solid fa-location-dot"></i>
-Cómo llegar
-</button>
+    <button id="btn-wpp" class="btn btn-wpp">
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp
+    </button>
 
-<button id="btn-wpp" class="btn btn-wpp">
-<i class="fa-brands fa-whatsapp"></i>
-WhatsApp
-</button>
-
-<footer class="footer">
-© 2026 Braulio · Comandante Andresito
-</footer>
-
+    <footer class="footer">
+        © 2026 Braulio · Comandante Andresito
+    </footer>
 </div>
 
 <script src="script.js"></script>
